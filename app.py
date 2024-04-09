@@ -46,6 +46,9 @@ def get_weather(message):
         else:
             bot.reply_to(message, 'Название города введено не коректно.')
     if len(get_city) == 2 and get_city[0].lower() == '/л':
+        city = get_city[1]
+        res = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api}&units=metric')
+        data = json.loads(res.text)
         bot.reply_to(message, f"Люблю город {data['name']} 💘")
 
 
