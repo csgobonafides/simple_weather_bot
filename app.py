@@ -45,6 +45,8 @@ def get_weather(message):
             bot.reply_to(message, f"Температура в городе {data['name']}: {int(data['main']['temp'])}℃ {emods}.")
         else:
             bot.reply_to(message, 'Название города введено не коректно.')
+    if len(get_city) == 2 and get_city[0].lower() == '/л':
+        bot.reply_to(message, f"Люблю город {data['name']} 💘")
 
 
 bot.polling(none_stop=True)                        #делает работу программы бесконечной
