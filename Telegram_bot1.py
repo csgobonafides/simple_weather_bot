@@ -2,6 +2,7 @@ import telebot              #Установленый из pypi
 import requests
 import json
 from pydantic_settings import BaseSettings
+import os
 
 class BotConfig(BaseSettings):
     token: str
@@ -9,8 +10,9 @@ class BotConfig(BaseSettings):
     class Config:
         env_file = '.env'
 
-
-bot = telebot.TeleBot('7000620374:AAHUp-ttpGXBumF6nGHbeLF3uA1K4Z4RigU') #токен бота
+TOKEN = os.getenv('BOT_TOKEN')
+bot = telebot.TeleBot(TOKEN)
+# bot = telebot.TeleBot('7000620374:AAHUp-ttpGXBumF6nGHbeLF3uA1K4Z4RigU') #токен бота
 api = '9b6ad82f21abd4ed6e636e6674de6b1c'
 
 @bot.message_handler(commands=['weather'])
