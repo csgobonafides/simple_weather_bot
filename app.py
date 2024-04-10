@@ -56,7 +56,7 @@ def get_weather(message):
         res = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api}&units=metric')
         if res.status_code == 200:
             data = json.loads(res.text)
-            bot.reply_to(message, f"Люблю город {data['name']} 💘💘💘")
+            bot.reply_to(message, f"Люблю город {data['name']} 💘💘💘💘💘")
         else:
             bot.reply_to(message, 'Странные у вас предпочтения.')
 
