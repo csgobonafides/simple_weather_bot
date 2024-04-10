@@ -46,11 +46,19 @@ def get_weather(message):
             bot.reply_to(message, f"Температура в городе {data['name']}: {int(data['main']['temp'])}℃ {emods}.")
         else:
             bot.reply_to(message, 'Название города введено не коректно.')
+
+@bot.message_handler(commands=['л'])
+def get_weather(message):
+    mess = message.text.strip().lower()
+    get_city = mess.split()
     if len(get_city) == 2 and get_city[0].lower() == '/л':
         city = get_city[1]
         res = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api}&units=metric')
-        data = json.loads(res.text)
-        bot.reply_to(message, f"Люблю город {data['name']} 💘")
+        if res.status_code == 200:
+            data = json.loads(res.text)
+            bot.reply_to(message, f"Люблю город {data['name']} 💘")
+        else:
+            bot.reply_to(message, 'Странные у вас предпочтения.')
 
 
 bot.polling(none_stop=True)                        #делает работу программы бесконечной
