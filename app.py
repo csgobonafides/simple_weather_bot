@@ -9,6 +9,7 @@ class BotConfig(BaseSettings):
 
     class Config:
         env_file = '.env'
+        env_prefix = 'BOT_'
 
 TOKEN = os.getenv('BOT_TOKEN')
 bot = telebot.TeleBot(TOKEN)
