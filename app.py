@@ -61,5 +61,6 @@ def get_weather(message):
             bot.reply_to(message, 'Странные у вас предпочтения.')
 
 
+
 bot.polling(none_stop=True)                        #делает работу программы бесконечной
 
