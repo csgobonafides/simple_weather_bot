@@ -25,5 +25,5 @@ jobs:
           cd /home/${{ secrets.REMOTE_USER }}/app
           echo BOT_TOKEN=${{ secrets.BOT_TOKEN }} > .env
           pip install -r requirements.txt
-          nohub python3 app.py > nohub.out 2> nohub.err < /dev/null &
+          nohup python3 app.py > nohup.out 2> nohup.err < /dev/null &
           ps
