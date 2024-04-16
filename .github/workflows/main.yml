@@ -21,7 +21,7 @@ jobs:
         TARGET: "/home/${{ secrets.REMOTE_USER }}/app"
         EXCLUDE: ".git/*,.github/*,.gitignore"
         SCRIPT_BEFORE: |
-          ps -ef | awk '$8=="python3" {print $2}' | xarges -r kill -SIGINT
+          ps -ef | awk '$8=="python3" {print $2}' | xargs -r kill -SIGINT
         SCRIPT_AFTER: |
           cd /home/${{ secrets.REMOTE_USER }}/app
           echo BOT_TOKEN=${{ secrets.BOT_TOKEN }} > .env
