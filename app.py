@@ -1,6 +1,8 @@
 import telebot              #Установленый из pypi
 import requests
 import json
+
+from dotenv import load_dotenv
 from pydantic_settings import BaseSettings
 import os
 
@@ -11,8 +13,9 @@ class BotConfig(BaseSettings):
         env_file = '.env'
         env_prefix = 'BOT_'
 
-TOKEN = os.getenv('BOT_TOKEN')
-bot = telebot.TeleBot(TOKEN)
+load_dotenv()
+config = BotConfig()
+bot = telebot.TeleBot(config.token)
 # bot = telebot.TeleBot('7000620374:AAHUp-ttpGXBumF6nGHbeLF3uA1K4Z4RigU') #токен бота
 api = '9b6ad82f21abd4ed6e636e6674de6b1c'
 
