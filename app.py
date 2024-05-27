@@ -46,7 +46,7 @@ def get_weather(message):
                 emods = '🌧️️ Дождь'
             else:
                 emods = 'Что-то новенькое 🤔'
-            bot.reply_to(message, f"Температура в городе {data['name']}: {int(data['main']['temp'])}℃ {emods}.")
+            bot.reply_to(message, f"Температура в городе {data['name']}: {int(data['main']['temp'])}℃ {emods}..")
         else:
             bot.reply_to(message, 'Название города введено не коректно.')
 
