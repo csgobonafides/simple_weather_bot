@@ -65,4 +65,4 @@ def get_weather(message):
 
 
 
-bot.polling(none_stop=True)                        #делает работу программы бесконечной
+bot.polling(none_stop=True)
